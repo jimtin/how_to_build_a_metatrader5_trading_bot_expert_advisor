@@ -1,16 +1,25 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import json
+import os
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+# Function to import settings from settings.json
+def get_project_settings(importFilepath):
+    # Test the filepath to sure it exists
+    if os.path.exists(importFilepath):
+        # Open the file
+        f = open(importFilepath, "r")
+        # Get the information from file
+        project_settings = json.load(f)
+        # Close the file
+        f.close()
+        # Return project settings to program
+        return project_settings
+    else:
+        return ImportError
 
 
-# Press the green button in the gutter to run the script.
+# Main function
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    import_filepath = "C:/Users/james/PycharmProjects/how_to_build_a_metatrader5_trading_bot_expert_advisor/settings.json"
+    project_settings = get_project_settings(import_filepath)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
