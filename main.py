@@ -1,6 +1,7 @@
 import json
 import os
 import mt5_interface
+import strategy
 
 
 # Function to import settings from settings.json
@@ -30,4 +31,10 @@ if __name__ == '__main__':
                             project_settings["mt5Pathway"])
     # Initialize symbols
     mt5_interface.initialize_symbols(project_settings["symbols"])
+    # Select symbol to run strategy on
+    symbol_for_strategy = project_settings['symbols'][0]
+    # Start strategy one on selected symbol
+    strategy.strategy_one(symbol=symbol_for_strategy, timeframe=project_settings['timeframe'],
+                          pip_size=project_settings['pip_size'])
+
 
