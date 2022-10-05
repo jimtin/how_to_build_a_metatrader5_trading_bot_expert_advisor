@@ -1,6 +1,7 @@
 import MetaTrader5
 
 
+
 # Function to start Meta Trader 5 (MT5)
 def start_mt5(username, password, server, path):
     # Ensure that all variables are the correct type

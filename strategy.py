@@ -16,6 +16,7 @@ def strategy_one(symbol, timeframe, pip_size):
     return "Completed"
 
 
+
 # Function to query last two candles in MetaTrader 5 based upon timeframe
 def get_and_transform_mt5_data(symbol, timeframe, number_of_candles, pip_size):
     # Retrieve the raw data from MT5 platform
