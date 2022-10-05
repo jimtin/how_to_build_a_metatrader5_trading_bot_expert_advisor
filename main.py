@@ -20,7 +20,6 @@ def get_project_settings(importFilepath):
         return ImportError
 
 
-
 # Main function
 if __name__ == '__main__':
     # Set up the import filepath
