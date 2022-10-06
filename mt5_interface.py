@@ -164,8 +164,23 @@ def set_query_timeframe(timeframe):
 def query_historic_data(symbol, timeframe, number_of_candles):
     # Convert the timeframe into an MT5 friendly format
     mt5_timeframe = set_query_timeframe(timeframe)
-    # Add 1 to number of candles
-    number_of_candles = number_of_candles + 1
     # Retrieve data from MT5
     rates = MetaTrader5.copy_rates_from_pos(symbol, mt5_timeframe, 1, number_of_candles)
     return rates
+
+
+# Function to retrieve all open orders from MT5
+def get_open_orders():
+    orders = MetaTrader5.orders_get()
+    order_array = []
+    for order in orders:
+        order_array.append(order[0])
+    return order_array
+
+
+# Function to retrieve all open positions
+def get_open_positions():
+    # Get position objects
+    positions = MetaTrader5.positions_get()
+    # Return position objects
+    return positions

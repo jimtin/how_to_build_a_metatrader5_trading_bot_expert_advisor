@@ -55,7 +55,7 @@ def make_decision(candle_dataframe):
 # Function to create a new order based upon previous analysis
 def create_new_order(decision_outcome, candle_dataframe, pip_size, symbol):
     # Extract the first row of the dataframe
-    first_row = candle_dataframe.iloc[0]
+    first_row = candle_dataframe.iloc[1]
     # Do nothing if outcome is "DoNothing
     if decision_outcome == "DoNothing":
         return
@@ -81,7 +81,45 @@ def create_new_order(decision_outcome, candle_dataframe, pip_size, symbol):
         num_pips = first_row["pip_distance"] * 2 * pip_size  # Convert pip_distance back into pips
         take_profit = buy_stop - num_pips
         # Add in an order comment
-        comment = "Green Order"
+        comment = "Red Order"
         # Send order to place_order function in mt5_interface.py
         mt5_interface.place_order("SELL_STOP", symbol, 0.1, buy_stop, stop_loss, take_profit, comment)
         return
+
+
+# Function to update trailing stop if needed
+def update_trailing_stop(order, trailing_stop_pips, pip_size):
+    # Convert trailing_stop_pips into pips
+    trailing_stop_pips = trailing_stop_pips * pip_size
+    # Determine if Red or Green
+    # A Green Position will have a take_profit > stop_loss
+    if order[12] > order[11]:
+        # If Green, new_stop_loss = current_price - trailing_stop_pips
+        new_stop_loss = order[13] - trailing_stop_pips
+        # Test to see if new_stop_loss > current_stop_loss
+        if new_stop_loss > order[11]:
+            print("Update Stop Loss")
+            # Create updated values for order
+            order_number = order[0]
+            symbol = order[16]
+            # New take_profit will be the difference between new_stop_loss and old_stop_loss added to take profit
+            new_take_profit = order[12] + new_stop_loss - order[11]
+            print(new_take_profit)
+            # Send order to modify_position
+            mt5_interface.modify_position(order_number=order_number, symbol=symbol, new_stop_loss=new_stop_loss,
+                                          new_take_profit=new_take_profit)
+    elif order[12] < order[11]:
+        # If Red, new_stop_loss = current_price + trailing_stop_pips
+        new_stop_loss = order[13] + trailing_stop_pips
+        # Test to see if new_stop_loss < current_stop_loss
+        if new_stop_loss < order[11]:
+            print("Update Stop Loss")
+            # Create updated values for order
+            order_number = order[0]
+            symbol = order[16]
+            # New take_profit will be the difference between new_stop_loss and old_stop_loss subtracted from old take_profit
+            new_take_profit = order[12] - new_stop_loss + order[11]
+            print(new_take_profit)
+            # Send order to modify_position
+            mt5_interface.modify_position(order_number=order_number, symbol=symbol, new_stop_loss=new_stop_loss,
+                                          new_take_profit=new_take_profit)
