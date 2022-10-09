@@ -1,0 +1,49 @@
+# How to Build a MetaTrader 5 Python Trading Bot (Expert Advisor) Series
+
+This is the code for my series **How to Build a MetaTrader 5 Python Trading Bot** found on Medium @appnologyjames
+
+The five part series covers all you need to get started building your very own Python Trading Bot. Each episode in the series contains working code samples to help you build your own.
+
+## Requirements
+- Windows 10 or above endpoint (for whatever reason, MetaTrader doesn't support their Python API on macOS or Linux)
+- MetaTrader 5 (note MetaTrader 4 doesn't have a Python API)
+- A basic knowledge of Python, such as functions and variables
+- Python 3 installed (my build version is 3.10)
+- An IDE (I used [JetBrains Pycharm Community Edition](https://www.jetbrains.com/pycharm/download/other.html))
+
+## Episodes
+### [Episode 1: Getting Started](https://appnologyjames.medium.com/metatrader5-python-trading-bot-230bd19285e9)
+This episode covers everything you need to get started building your Python Trading Bot, including:
+- How to set up your files
+- How to securely import your settings, including username/password
+- How to initialize your project through `___main___`
+- Where to find the MetaTrader 5 Python API
+
+### [Episode 2: Making Trades](https://appnologyjames.medium.com/how-to-build-a-metatrader-5-python-trading-bot-expert-advisor-making-trades-7188b5f78b23)
+This episode shows you how to make and modify trades on MetaTrader 5. It covers:
+- How to enable a trade symbol on MetaTrader 5
+- Placing Trades
+- Canceling an Order
+- Modifying an open position
+
+### [Episode 3: Automated Strategy](https://appnologyjames.medium.com/how-to-build-a-metatrader-5-python-trading-bot-expert-advisor-automated-strategy-dc2e32f1f902)
+This episode demonstrates how to break down a strategy into a series of codified steps. By the end of the episode, you can take an untested strategy and implement it in your code. It covers:
+- Setting up a program structure
+- Design considerations
+- Algorithmic decision making
+- Initiating trades based on decisions
+**Note: The algorithm used in this episode is simplistic and not recommended. It is for demonstration purposes only!**
+
+### [Episode 4: Automated Trading](https://appnologyjames.medium.com/how-to-build-a-metatrader-5-python-trading-bot-expert-advisor-automated-trading-ab7ee10bf4a)
+Demonstrates how to close the loop on your automated strategy, including:
+- Design considerations for parallel processing, polling method for data
+- Managing order queue
+- Some further improvements to consider
+
+### [Bonus Episode: Python Trailing Stop](https://appnologyjames.medium.com/metatrader-5-python-trailing-stop-2c562a541b48)
+This episode shows you how to implement one of the most requested features I get: a trailing stop. It includes:
+- An overview of a trailing stop
+- Ways to take this code and improve it
+- How to use the `modify_position()` function to trail a price
+- How update an existing position
+
