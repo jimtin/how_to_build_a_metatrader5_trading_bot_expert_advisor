@@ -4,6 +4,18 @@ This is the code for my series **How to Build a MetaTrader 5 Python Trading Bot*
 
 The five part series covers all you need to get started building your very own Python Trading Bot. Each episode in the series contains working code samples to help you build your own.
 
+# Now with YouTube!
+Our YouTube channel [algoquant_trade](https://www.youtube.com/@algoquant_trade) contains tons of helpful content on how
+to use the AutoTrading Bot or build one for yourself. Check out these episodes:
+1. [Secure Setup](https://www.youtube.com/watch?v=jpw3JltNMg0)
+2. [Connect To MetaTrader 5 with Python](https://www.youtube.com/watch?v=EkP7iAZoMEw&t=2s)
+3. [Retrieve 50000 Candlesticks from MetaTrader](https://www.youtube.com/watch?v=KZmVek6EDCg)
+4. [Add the EMA Indicator to Your Algorithmic AutoTrading Bot](https://youtu.be/QqLjXecrKhc)
+5. [How to Install TALib on Windows](https://youtu.be/jnxqu9MhBIE)
+6. [Build Your Own AutoTrading Bot EMA Cross Detector](https://youtu.be/lbdO_UKEzQU)
+7. [How to Trade the EMA Cross Strategy with Your AutoTrading Bot](https://youtu.be/A6RTl0_13pw)
+
+
 ## Requirements
 - Windows 10 or above endpoint (for whatever reason, MetaTrader doesn't support their Python API on macOS or Linux)
 - MetaTrader 5 (note MetaTrader 4 doesn't have a Python API)
@@ -11,7 +23,7 @@ The five part series covers all you need to get started building your very own P
 - Python 3 installed (my build version is 3.10)
 - An IDE (I used [JetBrains Pycharm Community Edition](https://www.jetbrains.com/pycharm/download/other.html))
 
-## Episodes
+## Medium Blog Series
 ### [Episode 1: Getting Started](https://appnologyjames.medium.com/metatrader5-python-trading-bot-230bd19285e9)
 This episode covers everything you need to get started building your Python Trading Bot, including:
 - How to set up your files
