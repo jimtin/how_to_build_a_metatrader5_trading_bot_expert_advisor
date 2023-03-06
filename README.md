@@ -59,3 +59,7 @@ This episode shows you how to implement one of the most requested features I get
 - How to use the `modify_position()` function to trail a price
 - How update an existing position
 
+
+## Check Out Our Website
+The response to this series has been, and remains, phenomenal. Check out the website created from it. 
+[AlgoQant.Trade](https://www.algoquant.trade/)
