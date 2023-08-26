@@ -4,20 +4,31 @@ This is the code for my series **How to Build a MetaTrader 5 Python Trading Bot*
 
 The five part series covers all you need to get started building your very own Python Trading Bot. Each episode in the series contains working code samples to help you build your own.
 
-# Now with YouTube!
-Our YouTube channel [algoquant_trade](https://www.youtube.com/@algoquant_trade) contains tons of helpful content on how
-to use the AutoTrading Bot or build one for yourself. Check out these episodes:
-1. [Secure Setup](https://www.youtube.com/watch?v=jpw3JltNMg0)
-2. [Connect To MetaTrader 5 with Python](https://www.youtube.com/watch?v=EkP7iAZoMEw&t=2s)
-3. [Retrieve 50000 Candlesticks from MetaTrader](https://www.youtube.com/watch?v=KZmVek6EDCg)
-4. [Add the EMA Indicator to Your Algorithmic AutoTrading Bot](https://youtu.be/QqLjXecrKhc)
-5. [How to Install TALib on Windows](https://youtu.be/jnxqu9MhBIE)
-6. [Build Your Own AutoTrading Bot EMA Cross Detector](https://youtu.be/lbdO_UKEzQU)
-7. [How to Trade the EMA Cross Strategy with Your AutoTrading Bot](https://youtu.be/A6RTl0_13pw)
-8. [How to Convert Your AutoTrading Bot Strategy into BUY and SELL Signals](https://youtu.be/21NtSVuPaZw)
-9. [How to Calculate Lot Size for Your MetaTrader 5 Python Trading Bot](https://youtu.be/fveyPFreenk)
-10. [How to Create Orders with Your MetaTrader Python Trading Bot](https://youtu.be/fveyPFreenk)
+-------------------------
 
+# Update August 2023: Tradeoxy.com
+I could never have imagined how popular this series would become. It became so popular, I launched a [YouTube Channel](https://www.youtube.com/channel/UC1sfWAyk-48pGy58lgehKFA), and got ton's of comments, people reaching out, etc. 
+
+What I found was that many of my readers/viewers were spending tens of hours configuring their environment, before even getting to building an algorithm 
+
+**I wanted to change this situation!**
+
+As a result, I've now launched [Tradeoxy.com](https://www.tradeoxy.com/). This platform brings together things:
+- Powerful API's to drastically simplify algorithm development
+- Education, through free and paid courses and YouTube videos
+- Supportive community where everyone helps each other
+
+Currently we are in the build/early access stage, and we would love you to join our journey (also, it's currently free!)
+
+To join us, head to [Tradeoxy.com](https://www.tradeoxy.com/)
+
+If you want to follou our journey, you can do so here:
+- [LinkedIn](https://www.linkedin.com/in/appnologyjames/)
+- [Instagram](https://www.instagram.com/appnologyjames/)
+- [Twitter](https://twitter.com/algoquant_trade)
+- [YouTube](https://www.youtube.com/channel/UC1sfWAyk-48pGy58lgehKFA)
+
+---------------------------------
 
 ## Requirements
 - Windows 10 or above endpoint (for whatever reason, MetaTrader doesn't support their Python API on macOS or Linux)
@@ -62,7 +73,16 @@ This episode shows you how to implement one of the most requested features I get
 - How to use the `modify_position()` function to trail a price
 - How update an existing position
 
-
-## Check Out Our Website
-The response to this series has been, and remains, phenomenal. Check out the website created from it. 
-[AlgoQant.Trade](https://www.algoquant.trade/)
+## YouTube Episodes
+Our YouTube channel [algoquant_trade](https://www.youtube.com/@algoquant_trade) contains tons of helpful content on how
+to use the AutoTrading Bot or build one for yourself. Check out these episodes:
+1. [Secure Setup](https://www.youtube.com/watch?v=jpw3JltNMg0)
+2. [Connect To MetaTrader 5 with Python](https://www.youtube.com/watch?v=EkP7iAZoMEw&t=2s)
+3. [Retrieve 50000 Candlesticks from MetaTrader](https://www.youtube.com/watch?v=KZmVek6EDCg)
+4. [Add the EMA Indicator to Your Algorithmic AutoTrading Bot](https://youtu.be/QqLjXecrKhc)
+5. [How to Install TALib on Windows](https://youtu.be/jnxqu9MhBIE)
+6. [Build Your Own AutoTrading Bot EMA Cross Detector](https://youtu.be/lbdO_UKEzQU)
+7. [How to Trade the EMA Cross Strategy with Your AutoTrading Bot](https://youtu.be/A6RTl0_13pw)
+8. [How to Convert Your AutoTrading Bot Strategy into BUY and SELL Signals](https://youtu.be/21NtSVuPaZw)
+9. [How to Calculate Lot Size for Your MetaTrader 5 Python Trading Bot](https://youtu.be/fveyPFreenk)
+10. [How to Create Orders with Your MetaTrader Python Trading Bot](https://youtu.be/fveyPFreenk)
