@@ -13,32 +13,6 @@ We love connecting with our audience! Join us on the following links:
 5. Upcoming Features: https://tradeoxy.notion.site/3f9666718dc24e38bbd4a56a741287ae?v=d810cfa006f54bafa4bbbe3674fefa98&pvs=74
 6. Custom Trading Bot development - https://tradeoxy.notion.site/Trading-Bot-Pricing-Guide-f0ff11b0604b4b998cba2b8da6a129cb?pvs=4
 
--------------------------
-
-# Update August 2023: Tradeoxy.com
-I could never have imagined how popular this series would become. It became so popular, I launched a [YouTube Channel](https://www.youtube.com/channel/UC1sfWAyk-48pGy58lgehKFA), and got ton's of comments, people reaching out, etc. 
-
-What I found was that many of my readers/viewers were spending tens of hours configuring their environment, before even getting to building an algorithm 
-
-**I wanted to change this situation!**
-
-As a result, I've now launched [Tradeoxy.com](https://www.tradeoxy.com/). This platform brings together things:
-- Powerful API's to drastically simplify algorithm development
-- Education, through free and paid courses and YouTube videos
-- Supportive community where everyone helps each other
-
-Currently we are in the build/early access stage, and we would love you to join our journey (also, it's currently free!)
-
-To join us, head to [Tradeoxy.com](https://www.tradeoxy.com/)
-
-If you want to follou our journey, you can do so here:
-- [LinkedIn](https://www.linkedin.com/in/appnologyjames/)
-- [Instagram](https://www.instagram.com/appnologyjames/)
-- [Twitter](https://twitter.com/algoquant_trade)
-- [YouTube](https://www.youtube.com/channel/UC1sfWAyk-48pGy58lgehKFA)
-
----------------------------------
-
 ## Requirements
 - Windows 10 or above endpoint (for whatever reason, MetaTrader doesn't support their Python API on macOS or Linux)
 - MetaTrader 5 (note MetaTrader 4 doesn't have a Python API)
