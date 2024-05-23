@@ -4,6 +4,15 @@ This is the code for my series **How to Build a MetaTrader 5 Python Trading Bot*
 
 The five part series covers all you need to get started building your very own Python Trading Bot. Each episode in the series contains working code samples to help you build your own.
 
+## Join Our Community
+We love connecting with our audience! Join us on the following links:
+1. Discord: https://discord.gg/wNYYGaMGfd
+2. Telegram: https://t.me/TradeOxySupportBot
+3. TradeOxy Platform: https://www.tradeoxy.com/
+4. Upcoming Content: https://tradeoxy.notion.site/Content-Creation-Roadmap-5f896060f39341fd9539bcaced8c3b5d
+5. Upcoming Features: https://tradeoxy.notion.site/3f9666718dc24e38bbd4a56a741287ae?v=d810cfa006f54bafa4bbbe3674fefa98&pvs=74
+6. Custom Trading Bot development - https://tradeoxy.notion.site/Trading-Bot-Pricing-Guide-f0ff11b0604b4b998cba2b8da6a129cb?pvs=4
+
 -------------------------
 
 # Update August 2023: Tradeoxy.com
