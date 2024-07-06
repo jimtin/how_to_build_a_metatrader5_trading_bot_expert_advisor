@@ -1,0 +1,9 @@
+{
+    "username": "51722690",
+    "password": "jWrW4BC!1BN3dx",
+    "server": "ICMarkets-Demo",
+    "mt5Pathway": "C:/Program Files/ICMarkets - MetaTrader 5/terminal64.exe",
+    "symbols": ["BTCUSD.a"],
+    "timeframe": "H1",
+    "pip_size": 0.01
+}

@@ -1,71 +1,63 @@
-import json
-import os
 import mt5_interface
-import strategy
-import time
+import copilot as metatrader5_copilot
+import helper_functions
+
+    
+# Function to start Meta Trader 5 (MT5)
+def start_mt5(project_settings):
+    # Start MT5
+    try:
+        mt5_interface.start_mt5(project_settings["username"], project_settings["password"], project_settings["server"],
+                                project_settings["mt5Pathway"])
+    except Exception as exception:
+        print(f"Error starting MetaTrader 5. Error: {exception}")
+        raise ConnectionAbortedError(f"Error starting MetaTrader 5. Error: {exception}")
+    # Initialize symbols
+    try:
+        mt5_interface.initialize_symbols(project_settings["symbols"])
+    except Exception as exception:
+        print(f"Error initializing symbols on MetaTrader 5. Error: {exception}")
+        raise ConnectionAbortedError(f"Error initializing symbols on MetaTrader 5. Error: {exception}")
+    # Return True if successful
+    return True
 
 
-# Function to import settings from settings.json
-def get_project_settings(importFilepath):
-    # Test the filepath to sure it exists
-    if os.path.exists(importFilepath):
-        # Open the file
-        f = open(importFilepath, "r")
-        # Get the information from file
-        project_settings = json.load(f)
-        # Close the file
-        f.close()
-        # Return project settings to program
-        return project_settings
-    else:
-        return ImportError
+# Function to start your MetaTrader 5 CoPilot
+def start_copilot(symbol, timeframe):
+    # Start the CoPilot
+    try:
+        metatrader5_copilot.start_copilot(symbol=symbol, timeframe=timeframe)
+    except Exception as exception:
+        print(f"Error starting CoPilot. Error: {exception}")
+        raise ConnectionAbortedError(f"Error starting CoPilot. Error: {exception}")
+    # Return True if successful
+    return True
 
 
 # Main function
 if __name__ == '__main__':
     # Set up the import filepath
-    import_filepath = "C:/Users/james/PycharmProjects/how_to_build_a_metatrader5_trading_bot_expert_advisor/settings.json"
+    import_filepath = "setting.json"
     # Import project settings
-    project_settings = get_project_settings(import_filepath)
+    project_settings = helper_functions.get_project_settings(import_filepath)
+    print("Starting MetaTrader 5 Terminal")
     # Start MT5
-    mt5_interface.start_mt5(project_settings["username"], project_settings["password"], project_settings["server"],
-                            project_settings["mt5Pathway"])
-    # Initialize symbols
-    mt5_interface.initialize_symbols(project_settings["symbols"])
-    # Select symbol to run strategy on
-    symbol_for_strategy = project_settings['symbols'][0]
-    # Set up a previous time variable
-    previous_time = 0
-    # Set up a current time variable
-    current_time = 0
-    # Start a while loop to poll MT5
-    while True:
-        # Retrieve the current candle data
-        candle_data = mt5_interface.query_historic_data(symbol=symbol_for_strategy,
-                                                        timeframe=project_settings['timeframe'], number_of_candles=1)
-        # Extract the timedata
-        current_time = candle_data[0][0]
-        # Compare against previous time
-        if current_time != previous_time:
-            # Notify user
-            print("New Candle")
-            # Update previous time
-            previous_time = current_time
-            # Retrieve previous orders
-            orders = mt5_interface.get_open_orders()
-            # Cancel orders
-            for order in orders:
-                mt5_interface.cancel_order(order)
-            # Start strategy one on selected symbol
-            strategy.strategy_one(symbol=symbol_for_strategy, timeframe=project_settings['timeframe'],
-                                  pip_size=project_settings['pip_size'])
+    try:
+        if start_mt5(project_settings) is True:
+            pass
         else:
-            # Get positions
-            positions = mt5_interface.get_open_positions()
-            # Pass positions to update_trailing_stop
-            for position in positions:
-                strategy.update_trailing_stop(order=position, trailing_stop_pips=10,
-                                              pip_size=project_settings['pip_size'])
-        time.sleep(0.1)
-
-
+            raise ConnectionError("Error starting MetaTrader 5")
+    except Exception as exception:
+        print(f"Error starting MetaTrader 5. Error: {exception}")
+        raise ConnectionAbortedError(f"Error starting MetaTrader 5. Error: {exception}")
+    print("Starting MetaTrader 5 CoPilot")
+    # Start CoPilot
+    try:
+        if start_copilot(symbol=project_settings['symbols'][0], timeframe=project_settings['timeframe']) is True:
+            pass
+        else:
+            raise ConnectionError("Error starting CoPilot")
+    except Exception as exception:
+        print(f"Error starting CoPilot. Error: {exception}")
+        raise ConnectionAbortedError(f"Error starting CoPilot. Error: {exception}")
+    

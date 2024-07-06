@@ -1,0 +1,3 @@
+https://docs.streamlit.io/develop/concepts/architecture/session-state
+https://streamlit.io/
+https://medium.com/nerd-for-tech/build-your-first-candlestick-chart-with-streamlit-7edd31ae559d#:~:text=Creating%20the%20Candlestick%20Chart%3A%20We,in%20the%20Streamlit%20web%20application.

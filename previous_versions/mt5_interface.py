@@ -1,5 +1,4 @@
 import MetaTrader5
-import pandas
 
 
 # Function to start Meta Trader 5 (MT5)
@@ -9,46 +8,46 @@ def start_mt5(username, password, server, path):
     pword = str(password) # Password must be a string
     trading_server = str(server) # Server must be a string
     filepath = str(path) # Filepath must be a string
-    
-    # Try to initialize MT5
-    try:
-        MetaTrader5.initialize(login=uname, password=pword, server=trading_server, path=filepath)
-    except Exception as exception:
-        error_details = MetaTrader5.last_error()
-        print(f"Error initializing MetaTrader 5. Error: {exception}, MetaTrader Details: {error_details}")
-        raise ConnectionAbortedError(f"Error initializing MetaTrader 5. Error: {exception}")
-    
-    # Try to login to MT5
-    try:
-        MetaTrader5.login(login=uname, password=pword, server=trading_server)
-    except Exception as exception:
-        error_details = MetaTrader5.last_error()
-        print(f"Error logging into MetaTrader 5. Error: {exception}, MetaTrader Details: {error_details}")
-        raise PermissionError(f"Error logging into MetaTrader 5. Error: {exception}")
-        
-    # Return True if successful
-    return True
+
+    # Attempt to start MT5
+    if MetaTrader5.initialize(login=uname, password=pword, server=trading_server, path=filepath):
+        print("Trading Bot Starting")
+        # Login to MT5
+        if MetaTrader5.login(login=uname, password=pword, server=trading_server):
+            print("Trading Bot Logged in and Ready to Go!")
+            return True
+        else:
+            print("Login Fail")
+            quit()
+            return PermissionError
+    else:
+        print("MT5 Initialization Failed")
+        quit()
+        return ConnectionAbortedError
 
 
 # Function to initialize a symbol on MT5
 def initialize_symbols(symbol_array):
-    # Enable the symbols in the symbol_array
-    for symbol in symbol_array:
-        print(f"Enabling symbol {symbol}")
-        # Try to select the symbol
-        try:
-            selected = MetaTrader5.symbol_select(symbol, True)
-        except Exception as exception:
-            print(f"Error selecting symbol {symbol}. Error: {exception}")
-            raise ConnectionError(f"Error selecting symbol {symbol}. Error: {exception}")
-        # If selected is not true, raise an error
-        if selected is not True:
-            raise ValueError(f"Error selecting symbol {symbol}")
-        # Get the symbol information
-        symbol_info = MetaTrader5.symbol_info(symbol)
-        # Print the symbol information
-        print(f"Symbol: {symbol_info.name}, Description: {symbol_info.description}, Digits: {symbol_info.digits}")
-    # Return True if successful
+    # Get a list of all symbols supported in MT5
+    all_symbols = MetaTrader5.symbols_get()
+    # Create an array to store all the symbols
+    symbol_names = []
+    # Add the retrieved symbols to the array
+    for symbol in all_symbols:
+        symbol_names.append(symbol.name)
+
+    # Check each symbol in symbol_array to ensure it exists
+    for provided_symbol in symbol_array:
+        if provided_symbol in symbol_names:
+            # If it exists, enable
+            if MetaTrader5.symbol_select(provided_symbol, True):
+                print(f"Sybmol {provided_symbol} enabled")
+            else:
+                return ValueError
+        else:
+            return SyntaxError
+
+    # Return true when all symbols enabled
     return True
 
 
@@ -165,17 +164,9 @@ def set_query_timeframe(timeframe):
 def query_historic_data(symbol, timeframe, number_of_candles):
     # Convert the timeframe into an MT5 friendly format
     mt5_timeframe = set_query_timeframe(timeframe)
-    try:
-        # Retrieve data from MT5
-        rates = MetaTrader5.copy_rates_from_pos(symbol, mt5_timeframe, 1, number_of_candles)
-    except Exception as exception:
-        # Get the last MT5 error
-        error_details = MetaTrader5.last_error()
-        print(f"Error retrieving historical data. Error: {exception}, MetaTrader Details: {error_details}")
-        raise ConnectionError(f"Error retrieving historical data. Error: {exception}, MetaTrader Details: {error_details}")
-    # Convert the data into a dataframe
-    rates_frame = pandas.DataFrame(rates)
-    return rates_frame
+    # Retrieve data from MT5
+    rates = MetaTrader5.copy_rates_from_pos(symbol, mt5_timeframe, 1, number_of_candles)
+    return rates
 
 
 # Function to retrieve all open orders from MT5
