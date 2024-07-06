@@ -37,17 +37,32 @@ def initialize_symbols(symbol_array):
         print(f"Enabling symbol {symbol}")
         # Try to select the symbol
         try:
-            selected = MetaTrader5.symbol_select(symbol, True)
+            selected = initialize_symbol(symbol)
         except Exception as exception:
             print(f"Error selecting symbol {symbol}. Error: {exception}")
             raise ConnectionError(f"Error selecting symbol {symbol}. Error: {exception}")
-        # If selected is not true, raise an error
-        if selected is not True:
-            raise ValueError(f"Error selecting symbol {symbol}")
-        # Get the symbol information
-        symbol_info = MetaTrader5.symbol_info(symbol)
-        # Print the symbol information
-        print(f"Symbol: {symbol_info.name}, Description: {symbol_info.description}, Digits: {symbol_info.digits}")
+
+    # Return True if successful
+    return True
+
+# Function to initialize a symbol on MT5
+def initialize_symbol(symbol):
+    """
+    Function to initialize a symbol on MT5
+    :param symbol: The symbol to be initialized
+    :return: True if successful
+    """
+    try:
+        # Select the symbol
+        selected = MetaTrader5.symbol_select(symbol, True)
+    except Exception as exception:
+        print(f"Error selecting symbol {symbol}. Error: {exception}")
+        raise ConnectionError(f"Error selecting symbol {symbol}. Error: {exception}")
+    # If selected is not true, raise an error
+    if selected is not True:
+        raise ValueError(f"Error selecting symbol {symbol}")
+    # Get the symbol information
+    symbol_info = MetaTrader5.symbol_info(symbol)
     # Return True if successful
     return True
 
@@ -175,6 +190,8 @@ def query_historic_data(symbol, timeframe, number_of_candles):
         raise ConnectionError(f"Error retrieving historical data. Error: {exception}, MetaTrader Details: {error_details}")
     # Convert the data into a dataframe
     rates_frame = pandas.DataFrame(rates)
+    # Create a new column which is human_time and convert the time into a human readable format
+    rates_frame['human_time'] = pandas.to_datetime(rates_frame['time'], unit='s')
     return rates_frame
 
 
@@ -193,3 +210,15 @@ def get_open_positions():
     positions = MetaTrader5.positions_get()
     # Return position objects
     return positions
+
+
+# Function to get a list of all the available symbols for this MT5
+def get_symbols():
+    # Get the symbols
+    try:
+        symbols = MetaTrader5.symbols_get()
+    except Exception as exception:
+        print(f"Error retrieving symbols. Error: {exception}")
+        raise ConnectionError(f"Error retrieving symbols. Error: {exception}")
+    # Return the symbols
+    return symbols
