@@ -34,7 +34,6 @@ def start_mt5(username, password, server, path):
 def initialize_symbols(symbol_array):
     # Enable the symbols in the symbol_array
     for symbol in symbol_array:
-        print(f"Enabling symbol {symbol}")
         # Try to select the symbol
         try:
             selected = initialize_symbol(symbol)

@@ -6,7 +6,7 @@ import user_interface
 def start_copilot(symbol, timeframe):
     # Start the CoPilot
     try:
-        user_interface.start_copilot_user_interface(symbol=symbol, timeframe=timeframe)
+        user_interface.start_copilot_user_interface()
     except Exception as exception:
         print(f"Error starting CoPilot. Error: {exception}")
         raise ConnectionAbortedError(f"Error starting CoPilot. Error: {exception}")

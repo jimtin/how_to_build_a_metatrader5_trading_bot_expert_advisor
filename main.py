@@ -40,7 +40,6 @@ if __name__ == '__main__':
     import_filepath = "setting.json"
     # Import project settings
     project_settings = helper_functions.get_project_settings(import_filepath)
-    print("Starting MetaTrader 5 Terminal")
     # Start MT5
     try:
         if start_mt5(project_settings) is True:
@@ -50,7 +49,6 @@ if __name__ == '__main__':
     except Exception as exception:
         print(f"Error starting MetaTrader 5. Error: {exception}")
         raise ConnectionAbortedError(f"Error starting MetaTrader 5. Error: {exception}")
-    print("Starting MetaTrader 5 CoPilot")
     # Start CoPilot
     try:
         if start_copilot(symbol=project_settings['symbols'][0], timeframe=project_settings['timeframe']) is True:
