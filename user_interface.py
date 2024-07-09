@@ -12,7 +12,18 @@ def start_copilot_user_interface():
     :param timeframe: The timeframe to be used
     :return: True if successful
     """
-    plot_spot = st.empty()
+    # Create the Page Config
+    st.set_page_config(
+        page_title="MT5 CoPilot", 
+        page_icon="📈", 
+        layout="wide"
+    )
+    # Define the page Layout
+    header = st.header("MT5 CoPilot", divider=True)
+    subheader = st.subheader("by AppnologyJames")
+    sidebar = st.container()
+    plot_spot = sidebar.empty()
+    chatview = st.container()
     # Check if the file exists
     try:
         with open("current_symbol_and_timeframe.json", "r") as file:
@@ -40,23 +51,17 @@ def start_copilot_user_interface():
     except Exception as exception:
         st.write(f"Error reading current symbol and timeframe. Error: {exception}")
         raise ConnectionAbortedError(f"Error reading current symbol and timeframe. Error: {exception}")
-    # Initialize the current symbol and timeframe
-    try:
-        # Get the candlesticks
-        candlesticks = update_candlesticks(selected_symbol=symbol, selected_timeframe=timeframe, plot_spot=plot_spot)
-    except Exception as exception:
-        st.write(f"Error updating candlesticks. Error: {exception}")
-        raise ConnectionAbortedError(f"Error updating candlesticks. Error: {exception}")
     # Get a list of all the available symbols
     try:
         symbols = get_symbols()
     except Exception as exception:
         st.write(f"Error retrieving symbols. Error: {exception}")
         raise ConnectionAbortedError(f"Error retrieving symbols. Error: {exception}")
+    
     # Create a Side Bar
-    with st.sidebar:
-        st.title("CoPilot Settings")
-        st.write("Select a symbol and timeframe")
+    with sidebar:
+        sidebar2, sidebar3 = sidebar.columns((1,1))
+        
         # Define what happens when the symbol changes
         def on_symbol_change():
             selected_symbol = st.session_state['selected_symbol']
@@ -66,7 +71,7 @@ def start_copilot_user_interface():
             if new_candlesticks_required is True:
                 # Update the candlesticks
                 candlesticks = update_candlesticks(selected_symbol=selected_symbol, selected_timeframe=timeframe, plot_spot=plot_spot)
-        symbol = st.selectbox("Symbol", symbols, key='selected_symbol', on_change=on_symbol_change)
+        symbol = sidebar2.selectbox("Symbol", symbols, key='selected_symbol', on_change=on_symbol_change)
         # Define what happens when the timeframe changes
         def on_timeframe_change():
             selected_timeframe = st.session_state['selected_timeframe']
@@ -77,7 +82,37 @@ def start_copilot_user_interface():
             if new_candlesticks_required is True:
                 # Update the candlesticks
                 candlesticks = update_candlesticks(selected_symbol=symbol, selected_timeframe=selected_timeframe, plot_spot=plot_spot)
-        timeframe = st.selectbox("Timeframe", ["M1", "M5", "M15", "M30", "H1", "H4", "H6", "H8", "H12", "D1", "W1", "MN1"], key='selected_timeframe', on_change=on_timeframe_change)
+        timeframe = sidebar3.selectbox("Timeframe", ["M1", "M5", "M15", "M30", "H1", "H4", "H6", "H8", "H12", "D1", "W1", "MN1"], key='selected_timeframe', on_change=on_timeframe_change)
+    # Initialize the current symbol and timeframe
+    try:
+        # Get the candlesticks
+        candlesticks = update_candlesticks(selected_symbol=symbol, selected_timeframe=timeframe, plot_spot=plot_spot)
+    except Exception as exception:
+        st.write(f"Error updating candlesticks. Error: {exception}")
+        raise ConnectionAbortedError(f"Error updating candlesticks. Error: {exception}")
+    # Set up the CoPilot Chat
+    # Initialize chat history
+    if "messages" not in st.session_state:
+        st.session_state.messages = []
+    # Display chat messages from history on app rerun
+    for message in st.session_state.messages:
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
+    # React to user input
+    if prompt := st.chat_input("Ask me a question about MT5 or programming"):
+        # Display user message in chat message container
+        with st.chat_message("user"):
+            st.markdown(prompt)
+        # Add user message to chat history
+        st.session_state.messages.append({"role": "user", "content": prompt})
+        
+        # Add a response to the chat
+        response = f"Echo: {prompt}"
+        # Display response in chat message container
+        with st.chat_message("assistant"):
+            st.markdown(response)
+        # Add assistant response to chat history
+        st.session_state.messages.append({"role": "assistant", "content": response})
     # Return True if successful
     return True
 
@@ -113,7 +148,10 @@ def construct_candlestick_chart(candles):
         raise ConnectionAbortedError(f"Error constructing candlestick chart layout. Error: {exception}")
     # Construct the figure
     try:
-        figure = go.Figure(data=candlestick, layout=layout)
+        figure = go.Figure(
+            data=candlestick, 
+            layout=layout
+        )
     except Exception as exception:
         st.write(f"Error constructing candlestick chart figure. Error: {exception}")
         raise ConnectionAbortedError(f"Error constructing candlestick chart figure. Error: {exception}")
@@ -205,6 +243,7 @@ def update_candlesticks(selected_symbol, selected_timeframe, plot_spot):
     except Exception as exception:
         st.write(f"Error updating candlesticks. Error: {exception}")
         raise ConnectionAbortedError(f"Error updating candlesticks. Error: {exception}")
+    """
     try:
         # Construct the candlestick chart
         figure = construct_candlestick_chart(candles)
@@ -226,8 +265,9 @@ def update_candlesticks(selected_symbol, selected_timeframe, plot_spot):
     except Exception as exception:
         st.write(f"Error updating candlesticks. Error: {exception}")
         raise ConnectionAbortedError(f"Error updating candlesticks. Error: {exception}")
+    """
     # Return True if successful
-    return True
+    return candles
 
 
 # Function to write the current symbol and timeframe to a .json file
