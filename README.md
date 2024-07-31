@@ -6,12 +6,12 @@ The five part series covers all you need to get started building your very own P
 
 ## Join Our Community
 We love connecting with our audience! Join us on the following links:
-1. Discord: https://discord.gg/wNYYGaMGfd
-2. Telegram: https://t.me/TradeOxySupportBot
-3. TradeOxy Platform: https://www.tradeoxy.com/
-4. Upcoming Content: https://tradeoxy.notion.site/Content-Creation-Roadmap-5f896060f39341fd9539bcaced8c3b5d
-5. Upcoming Features: https://tradeoxy.notion.site/3f9666718dc24e38bbd4a56a741287ae?v=d810cfa006f54bafa4bbbe3674fefa98&pvs=74
-6. Custom Trading Bot development - https://tradeoxy.notion.site/Trading-Bot-Pricing-Guide-f0ff11b0604b4b998cba2b8da6a129cb?pvs=4
+1. [Discord](https://discord.gg/wNYYGaMGfd)
+2. [Telegram](https://t.me/TradeOxySupportBot)
+3. [TradeOxy Platform](https://www.tradeoxy.com)
+4. [Upcoming Content](https://tradeoxy.notion.site/Content-Creation-Roadmap-5f896060f39341fd9539bcaced8c3b5d)
+5. [Upcoming Features](https://tradeoxy.notion.site/3f9666718dc24e38bbd4a56a741287ae?v=d810cfa006f54bafa4bbbe3674fefa98&pvs=74)
+6. [Custom Trading Bot development](https://tradeoxy.notion.site/Trading-Bot-Pricing-Guide-f0ff11b0604b4b998cba2b8da6a129cb?pvs=4)
 
 ## Requirements
 - Windows 10 or above endpoint (for whatever reason, MetaTrader doesn't support their Python API on macOS or Linux)
