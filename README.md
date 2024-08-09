@@ -21,21 +21,21 @@ We love connecting with our audience! Join us on the following links:
 - An IDE (I used [JetBrains Pycharm Community Edition](https://www.jetbrains.com/pycharm/download/other.html))
 
 ## Blog Articles Series
-### [Episode 1: Getting Started](https://paragraph.xyz/@appnologyjames/how-to-build-a-metatrader-5-python-trading-bot-getting-started)
+### [Episode 1: Getting Started](https://www.appnologyjames.com/metatrader5-python-trading-bot/)
 This episode covers everything you need to get started building your Python Trading Bot, including:
 - How to set up your files
 - How to securely import your settings, including username/password
 - How to initialize your project through `___main___`
 - Where to find the MetaTrader 5 Python API
 
-### [Episode 2: Making Trades](https://paragraph.xyz/@appnologyjames/how-to-build-a-metatrader-5-python-trading-bot-making-trades)
+### [Episode 2: Making Trades](https://www.appnologyjames.com/how-to-build-a-metatrader-5-python-trading-bot-expert-advisor-making-trades/)
 This episode shows you how to make and modify trades on MetaTrader 5. It covers:
 - How to enable a trade symbol on MetaTrader 5
 - Placing Trades
 - Canceling an Order
 - Modifying an open position
 
-### [Episode 3: Automated Strategy](https://paragraph.xyz/@appnologyjames/how-to-build-a-metatrader-5-python-trading-bot-automated-strategy)
+### [Episode 3: Automated Strategy](https://www.appnologyjames.com/how-to-build-a-metatrader-5-python-trading-bot-expert-advisor-automated-strategy/)
 This episode demonstrates how to break down a strategy into a series of codified steps. By the end of the episode, you can take an untested strategy and implement it in your code. It covers:
 - Setting up a program structure
 - Design considerations
@@ -43,13 +43,13 @@ This episode demonstrates how to break down a strategy into a series of codified
 - Initiating trades based on decisions
 **Note: The algorithm used in this episode is simplistic and not recommended. It is for demonstration purposes only!**
 
-### [Episode 4: Automated Trading](https://paragraph.xyz/@appnologyjames/how-to-build-a-metatrader-5-python-trading-bot-automated-trading)
+### [Episode 4: Automated Trading](https://www.appnologyjames.com/how-to-build-a-metatrader-5-python-trading-bot-expert-advisor-automated-trading/)
 Demonstrates how to close the loop on your automated strategy, including:
 - Design considerations for parallel processing, polling method for data
 - Managing order queue
 - Some further improvements to consider
 
-### [Bonus Episode: Python Trailing Stop](https://paragraph.xyz/@appnologyjames/how-to-build-a-trailing-stop-for-your-metatrader-5-python-expert-advisor-trading-bot)
+### [Bonus Episode: Python Trailing Stop](https://www.appnologyjames.com/metatrader-5-python-trailing-stop/)
 This episode shows you how to implement one of the most requested features I get: a trailing stop. It includes:
 - An overview of a trailing stop
 - Ways to take this code and improve it
