@@ -8,10 +8,6 @@ The five part series covers all you need to get started building your very own P
 We love connecting with our audience! Join us on the following links:
 1. [Discord](https://discord.gg/wNYYGaMGfd)
 2. [Telegram](https://t.me/TradeOxySupportBot)
-3. [TradeOxy Platform](https://www.tradeoxy.com)
-4. [Upcoming Content](https://tradeoxy.notion.site/Content-Creation-Roadmap-5f896060f39341fd9539bcaced8c3b5d)
-5. [Upcoming Features](https://tradeoxy.notion.site/3f9666718dc24e38bbd4a56a741287ae?v=d810cfa006f54bafa4bbbe3674fefa98&pvs=74)
-6. [Custom Trading Bot development](https://tradeoxy.notion.site/Trading-Bot-Pricing-Guide-f0ff11b0604b4b998cba2b8da6a129cb?pvs=4)
 
 ## Requirements
 - Windows 10 or above endpoint (for whatever reason, MetaTrader doesn't support their Python API on macOS or Linux)
@@ -21,21 +17,21 @@ We love connecting with our audience! Join us on the following links:
 - An IDE (I used [JetBrains Pycharm Community Edition](https://www.jetbrains.com/pycharm/download/other.html))
 
 ## Blog Articles Series
-### [Episode 1: Getting Started](https://www.appnologyjames.com/metatrader5-python-trading-bot/)
+### [Episode 1: Getting Started](https://www.thedisruptioncontinuum.channel/metatrader5-python-trading-bot/)
 This episode covers everything you need to get started building your Python Trading Bot, including:
 - How to set up your files
 - How to securely import your settings, including username/password
 - How to initialize your project through `___main___`
 - Where to find the MetaTrader 5 Python API
 
-### [Episode 2: Making Trades](https://www.appnologyjames.com/how-to-build-a-metatrader-5-python-trading-bot-expert-advisor-making-trades/)
+### [Episode 2: Making Trades](https://www.thedisruptioncontinuum.channel/how-to-build-a-metatrader-5-python-trading-bot-expert-advisor-making-trades/)
 This episode shows you how to make and modify trades on MetaTrader 5. It covers:
 - How to enable a trade symbol on MetaTrader 5
 - Placing Trades
 - Canceling an Order
 - Modifying an open position
 
-### [Episode 3: Automated Strategy](https://www.appnologyjames.com/how-to-build-a-metatrader-5-python-trading-bot-expert-advisor-automated-strategy/)
+### [Episode 3: Automated Strategy](https://www.thedisruptioncontinuum.channel/how-to-build-a-metatrader-5-python-trading-bot-expert-advisor-automated-strategy/)
 This episode demonstrates how to break down a strategy into a series of codified steps. By the end of the episode, you can take an untested strategy and implement it in your code. It covers:
 - Setting up a program structure
 - Design considerations
@@ -43,13 +39,13 @@ This episode demonstrates how to break down a strategy into a series of codified
 - Initiating trades based on decisions
 **Note: The algorithm used in this episode is simplistic and not recommended. It is for demonstration purposes only!**
 
-### [Episode 4: Automated Trading](https://www.appnologyjames.com/how-to-build-a-metatrader-5-python-trading-bot-expert-advisor-automated-trading/)
+### [Episode 4: Automated Trading](https://www.thedisruptioncontinuum.channel/how-to-build-a-metatrader-5-python-trading-bot-expert-advisor-automated-trading/)
 Demonstrates how to close the loop on your automated strategy, including:
 - Design considerations for parallel processing, polling method for data
 - Managing order queue
 - Some further improvements to consider
 
-### [Bonus Episode: Python Trailing Stop](https://www.appnologyjames.com/metatrader-5-python-trailing-stop/)
+### [Bonus Episode: Python Trailing Stop](www.thedisruptioncontinuum.channel/metatrader-5-python-trailing-stop/)
 This episode shows you how to implement one of the most requested features I get: a trailing stop. It includes:
 - An overview of a trailing stop
 - Ways to take this code and improve it
